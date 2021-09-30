@@ -7,9 +7,9 @@ class Mlp:
         self._show = show
         self._result = result
 
-    def treinamento_resultado(self, arquitetura):
+    def treinamento_resultado(self, neuroniosPorCamada):
         # Treinamendo do Mlp    
-        model = MLPClassifier(hidden_layer_sizes=(3,2), activation=f"{arquitetura}",max_iter=2000)
+        model = MLPClassifier(hidden_layer_sizes= neuroniosPorCamada, activation='tanh', max_iter=2000)
         model = model.fit(self._base.get_x_train(), self._base.get_y_train())
 
         # Predição e Resultados

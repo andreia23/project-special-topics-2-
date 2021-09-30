@@ -20,13 +20,13 @@ def main():
             "3- Abalone\n" + 
             "0- Exit\n" + "\n>> ")
         if optionDataset in ("1"):
-            run("wine", "inicial", 13)
+            run("wine", "inicial", 13) # Classes:3 (1,2,3)
         elif optionDataset in ("2"): 
-            run("balance-scale", "inicial", 4)
+            run("balance-scale", "inicial", 4) # Classes:3 (L,B,R)
         elif optionDataset in ("3"): 
-            run("abalone", "inicial", 8)
+            run("abalone", "inicial", 8) # Classes:3 (M, F, I)
         elif optionDataset in ("4"): 
-            run("iris", "final", 4)
+            run("iris", "final", 4) # Classes:3 (1-Iris Setosa, 2-Iris Versicolour, 3-Iris Virginica)
         elif optionDataset in ("5"): 
             run("tic-tac-toe ", "final", 9)
         elif optionDataset in ("6"): 
@@ -43,19 +43,19 @@ def run(name, y_position, numberAttributes):
     randomBase.eighty_by_twenty()
 
     arvore_1 = Arvore(randomBase)
-    arvore_1.treinamento_resultado('entropy')
+    arvore_1.treinamento_resultado('entropy') # Critério
     
     knN_1 = KnN(randomBase)
-    knN_1.treinamento_resultado('euclidean', 5)
+    knN_1.treinamento_resultado('euclidean', 5) # Distância | Vizinhança
     
     knN_2 = KnN(randomBase)
     knN_2.treinamento_resultado('euclidean', 10)
 
     mlp_1 = Mlp(randomBase)
-    mlp_1.treinamento_resultado('tanh')
+    mlp_1.treinamento_resultado((5,3)) # Número de Neurônios por Camadas
 
     mlp_2 = Mlp(randomBase)
-    mlp_2.treinamento_resultado('logistic')
+    mlp_2.treinamento_resultado((3,8,16)) 
 
     print(f"Arvore_1: {arvore_1}\n")
     
