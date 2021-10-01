@@ -1,6 +1,7 @@
 from treeD import Arvore
 from k_nN import KnN
 from mlp import Mlp
+from k_means import Kmean
 from datasets_ import Dataset
 from trainTest import Train_test
 import pandas as pd
@@ -56,6 +57,9 @@ def run(name, y_position, numberAttributes):
 
     mlp_2 = Mlp(randomBase)
     mlp_2.treinamento_resultado((3,8,16)) 
+    
+    kmeans = Kmean(randomBase)
+    kmeans.treinamento_resultado()
 
     print(f"Arvore_1: {arvore_1}\n")
     
@@ -64,6 +68,8 @@ def run(name, y_position, numberAttributes):
     
     print(f"MLP_1: {mlp_1}\n")
     print(f"MLP_2: {mlp_2}\n")
+
+    print(f"Kmeans: {kmeans}\n")
 
 if __name__ == '__main__':
     main()
